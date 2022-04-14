@@ -76,6 +76,7 @@ public class EntityDaoImpl<T> implements EntityDao<T> {
         EntityManager entityManager = factory.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(t);
+        entityManager.flush();
         entityManager.getTransaction().commit();
         entityManager.close();
     }
@@ -88,6 +89,7 @@ public class EntityDaoImpl<T> implements EntityDao<T> {
         EntityManager entityManager = factory.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.merge(t);
+        entityManager.flush();
         entityManager.getTransaction().commit();
         entityManager.close();
     }
@@ -101,6 +103,7 @@ public class EntityDaoImpl<T> implements EntityDao<T> {
         T entity = entityManager.find(aClass, id);
         entityManager.getTransaction().begin();
         entityManager.remove(entity);
+        entityManager.flush();
         entityManager.getTransaction().commit();
         entityManager.close();
     }
