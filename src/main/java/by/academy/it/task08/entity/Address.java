@@ -12,6 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ *
+ */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,14 +23,26 @@ import javax.persistence.Table;
 @Table
 public class Address {
     // id, city, street, house
+    /**
+     *
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer id;
+    private Long id;
+    /**
+     *
+     */
     @Column
     private String city;
+    /**
+     *
+     */
     @Column
     private String street;
+    /**
+     *
+     */
     @Column
     private String house;
 }

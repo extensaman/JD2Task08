@@ -3,22 +3,46 @@ package by.academy.it.task08.dao.factory;
 import by.academy.it.task08.dao.AddressDao;
 import by.academy.it.task08.dao.PeopleDao;
 
-public abstract class DaoFactory {
-    enum DaoForm {
-        JPA, FILE;
-    }
-    public abstract AddressDao getAddressDao();
+/**
+ *
+ */
+public interface DaoFactory {
+    /**
+     *
+     */
+    enum PersistenceUnit {
+        /**
+         *
+         */
+        PRODUCTION("production"),
+        /**
+         *
+         */
+        TEST("test");
+        /**
+         *
+         */
+        private String persistenceUtitName;
 
-    public abstract PeopleDao getPeopleDao();
+        PersistenceUnit(final String pun) {
+            this.persistenceUtitName = pun;
+        }
 
-    public static DaoFactory getDaoFactory(DaoForm form) {
-        switch (form){
-            case JPA:
-                return new SqlDaoFactory(String persistenceUnitName);
-            case FILE:
-                return new FileDaoFactory();
-            default:
-                throw new IllegalArgumentException();
+        /**
+         * @return -
+         */
+        public String getPersistenceUtitName() {
+            return persistenceUtitName;
         }
     }
+
+    /**
+     * @return -
+     */
+    AddressDao getAddressDao();
+
+    /**
+     * @return -
+     */
+    PeopleDao getPeopleDao();
 }

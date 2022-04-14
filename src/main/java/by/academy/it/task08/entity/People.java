@@ -12,6 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ *
+ */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,14 +23,26 @@ import javax.persistence.Table;
 @Table
 public class People {
     // id, first name, last name, patronymic
+    /**
+     *
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Integer id;
-    @Column
-    private String name;
+    private Long id;
+    /**
+     *
+     */
     @Column
     private String surname;
+    /**
+     *
+     */
+    @Column
+    private String name;
+    /**
+     *
+     */
     @Column
     private String patronymic;
 }

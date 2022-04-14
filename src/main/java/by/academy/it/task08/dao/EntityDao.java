@@ -1,11 +1,34 @@
 package by.academy.it.task08.dao;
 
-import java.util.Map;
+import java.util.List;
 
-public interface EntityDao <T>{
+/**
+ * @param <T>
+ */
+public interface EntityDao<T> {
+    /**
+     * @param id
+     * @return -
+     */
     T findById(Long id);
-    Map<Long,T> findAll();
-    void insert(T t);
+
+    /**
+     * @return -
+     */
+    List<T> findAll();
+
+    /**
+     * @param t
+     */
+    void save(T t);
+
+    /**
+     * @param t
+     */
+    void update(T t);
+
+    /**
+     * @param id
+     */
     void delete(Long id);
-    void update(Long id, T t);
 }
